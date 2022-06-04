@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pet.apps.PetConfig',
-    'rest_framework'
+    'adocao.apps.AdocaoConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
