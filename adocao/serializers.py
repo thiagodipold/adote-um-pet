@@ -22,7 +22,7 @@ class AdocaoSerializer(serializers.ModelSerializer):
     def validate_valor(self, value):
         if value < 10:
             raise serializers.ValidationError("Deve ser maior que 10")
-        if value > 10:
+        if value > 100:
             raise serializers.ValidationError('Deve ser menor que 100')
         
         return value
