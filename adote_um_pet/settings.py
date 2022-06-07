@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +27,10 @@ SECRET_KEY = "django-insecure-db69bqfo^xx-tkp&%d+5c&9_hk&p=ulf%(1y-pafqe()v3opil
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Application definition
@@ -130,3 +135,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 APPEND_SLASH = False
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+# EMAIL
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
